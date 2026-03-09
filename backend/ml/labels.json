@@ -1,0 +1,98 @@
+[
+  {
+    "fileName": "10.jpg",
+    "patient_name": "Mr. Ch. Samuel",
+    "date": "24-08-2021",
+    "doctor_name": "Dr. Naveen Polavarapu",
+    "medicines": [
+      { "name": "Treatment for Severe Sepsis with MODS", "dosage": "ICU Care", "frequency": "8-10 days" }
+    ]
+  },
+  {
+    "fileName": "11.jpg",
+    "patient_name": "Seerat",
+    "date": "04-11-2019",
+    "doctor_name": "Dr. Ashok Gupta",
+    "medicines": [
+      { "name": "Syp. Sumol DS", "dosage": "4 ml", "frequency": "4 hrly (SOS)" },
+      { "name": "Syp. Mucolite LS", "dosage": "2.5 ml", "frequency": "TDS" },
+      { "name": "Tab. Meftal-P", "dosage": "1 tab", "frequency": "SOS" }
+    ]
+  },
+  {
+    "fileName": "12.jpg",
+    "patient_name": "N/A",
+    "date": "25-01-2005",
+    "doctor_name": "N/A",
+    "medicines": [
+      { "name": "Novalgin fix", "dosage": "20 Trpf (drops)", "frequency": "4 times daily" }
+    ]
+  },
+  {
+    "fileName": "13.jpg",
+    "patient_name": "John Beckworth",
+    "date": "03-08-01",
+    "doctor_name": "N/A",
+    "medicines": [
+      { "name": "Hypnodorm", "dosage": "2 mg", "frequency": "N/A" }
+    ]
+  },
+  {
+    "fileName": "14.jpg",
+    "patient_name": "Mr. Ajay Sethi",
+    "date": "24-04-2021",
+    "doctor_name": "Dr. Ajay Sahdev",
+    "medicines": [
+      { "name": "Inj REMDEC", "dosage": "200 mg / 100 mg", "frequency": "STAT / OD x 4 days" },
+      { "name": "Inj Actemra", "dosage": "400 mg", "frequency": "OD x 2 (gap of 2 days)" }
+    ]
+  },
+  {
+    "fileName": "15.jpg",
+    "patient_name": "Todd Brays",
+    "date": "03-10-2006",
+    "doctor_name": "T. Anderson, DO",
+    "medicines": [
+      { "name": "Methadone", "dosage": "40 mg", "frequency": "TID PRN PAIN" }
+    ]
+  },
+  {
+    "fileName": "16.jpg",
+    "patient_name": "N/A",
+    "date": "17-10-2017",
+    "doctor_name": "N/A",
+    "medicines": [
+      { "name": "PARACETAMOL", "dosage": "1 g", "frequency": "QDS (4 hourly for pain)" }
+    ]
+  },
+  {
+    "fileName": "17.jpg",
+    "patient_name": "Mr. Sachin Sansare",
+    "date": "12-10-2022",
+    "doctor_name": "Dr. Sunita",
+    "medicines": [
+      { "name": "Tab. Augmentin 625mg", "dosage": "1-0-1", "frequency": "5 days" },
+      { "name": "Tab. Enzoflam", "dosage": "1-0-1", "frequency": "5 days" },
+      { "name": "Tab. Pan-D 40mg", "dosage": "1-0-0", "frequency": "5 days" },
+      { "name": "Hexigel gum paint", "dosage": "Massage", "frequency": "1-0-1 x 1 week" }
+    ]
+  },
+  {
+    "fileName": "18.jpg",
+    "patient_name": "Shorty Powell",
+    "date": "11-16-2010",
+    "doctor_name": "Allen, MD",
+    "medicines": [
+      { "name": "Phenytoin Sodium Extended", "dosage": "100 mg", "frequency": "TID" }
+    ]
+  },
+  {
+    "fileName": "19.jpg",
+    "patient_name": "N/A",
+    "date": "26-04-2021",
+    "doctor_name": "N/A",
+    "medicines": [
+      { "name": "Medical rest for Physical injuries", "dosage": "N/A", "frequency": "N/A" }
+    ]
+  }
+]
