@@ -1,0 +1,494 @@
+/* --- 
+  This is the new, combined CSS file.
+  It creates a clean, light theme
+  with a Modern Purple accent.
+--- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- Base Variables (Modern Purple Theme) --- */
+:root {
+  --primary-color: #7C3AED; /* Vibrant Purple */
+  --primary-light-color: #F3E8FF; /* Light Lavender */
+  --success-color: #16A34A; /* Standard Green */
+  --error-color: #E11D48; /* Strong Rose/Red */
+  --error-light-color: #FDE8E8; /* Light Pink/Red */
+  
+  --bg-color: #F9FAFB; /* Very light gray page background */
+  --card-bg-color: #FFFFFF; /* White cards */
+  --text-primary-color: #1F2937; /* Dark text for readability */
+  --text-secondary-color: #6B7286; /* Gray text for labels/p */
+  --border-color: #E5E7EB; /* Light border */
+  --border-radius: 8px; 
+}
+
+/* --- Base Styles --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Layout --- */
+.main-content {
+  /* The .container class on child pages handles padding */
+}
+.container { 
+  max-width: 900px; 
+  margin: 2rem auto; 
+  padding: 0 1rem; /* Padding on pages */
+}
+
+/* --- Page Headers (on Home/Admin) --- */
+.app-header { text-align: center; margin-bottom: 2.5rem; }
+.app-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  /* Beautiful Gradient Title */
+  background: linear-gradient(90deg, var(--text-primary-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.app-header p { font-size: 1.1rem; color: var(--text-secondary-color); }
+
+/* --- Card Styles --- */
+.card {
+  background: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px; /* Softer corners */
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft shadow */
+}
+
+/* --- Home Page Grid --- */
+.upload-grid { 
+  display: grid; 
+  grid-template-columns: 2fr 1fr; 
+  gap: 1.5rem; 
+  align-items: flex-start;
+}
+@media (max-width: 768px) {
+  .upload-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Form Styles --- */
+.form-group { margin-bottom: 1rem; }
+.form-group label { 
+  display: block; 
+  font-weight: 500; 
+  margin-bottom: 0.5rem; 
+  color: var(--text-secondary-color); 
+}
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary-color);
+  font-size: 1rem;
+}
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-light-color);
+}
+
+.image-preview { margin-top: 1rem; text-align: center; }
+.image-preview img { 
+  max-width: 100%; 
+  max-height: 150px; 
+  border-radius: 8px; 
+  border: 1px solid var(--border-color); 
+}
+
+.actions-section p { 
+  color: var(--text-secondary-color); 
+  margin-bottom: 1rem; 
+  font-size: 0.9rem;
+}
+
+/* --- Button Styles --- */
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: var(--primary-color);
+  color: #fff;
+}
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  /* Updated shadow color to purple */
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+}
+.button:disabled { 
+  background-color: #ccc; 
+  cursor: not-allowed; 
+  opacity: 0.7; 
+}
+
+/* File Input */
+.file-input-wrapper { 
+  position: relative; 
+  overflow: hidden; 
+  display: inline-block; 
+  width: 100%; 
+}
+.file-input-button {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary-color);
+  background-color: var(--card-bg-color);
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.file-input-button:hover {
+  border-color: var(--primary-color);
+  color: var(--text-primary-color);
+  background-color: var(--primary-light-color);
+}
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.file-name {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-secondary-color);
+  text-align: center;
+}
+
+
+/* --- 
+  AESTHETIC NAVBAR 
+--- */
+.page-header {
+  padding: 0 2rem; /* Padding left/right */
+  background-color: var(--card-bg-color); /* White header */
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03); /* Softer shadow */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 64px; /* Resized navbar */
+}
+
+/* 3-Column Layout for Navbar */
+.navbar-left {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.navbar-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; 
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+.navbar-logo h1 {
+  font-size: 1.2rem; /* Resized title */
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary-color); /* Dark text */
+}
+.navbar-logo svg {
+  color: var(--primary-color); /* Bright purple icon */
+}
+
+/* Nav Links */
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--bg-color); /* Light grey tab container */
+  padding: 6px;
+  border-radius: 9px;
+  border: 1px solid var(--border-color);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem; /* Resized text */
+  color: var(--text-secondary-color); /* Grey text */
+  border-radius: 7px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--text-primary-color);
+}
+
+.nav-link.active {
+  color: var(--primary-color); /* Active link text */
+  font-weight: 600;
+  background-color: var(--card-bg-color); /* White tab */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Logout Button */
+.logout-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary-color); /* Grey text */
+  font-size: 0.9rem; /* Resized text */
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logout-button:hover {
+  background-color: var(--error-light-color); /* Faint pink/red */
+  color: var(--error-color); /* Red text on hover */
+}
+
+/* --- 
+  ALL OTHER STYLES (AdminPanel, Messages, etc.)
+--- */
+
+/* Admin Panel Table */
+.admin-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--card-bg-color);
+}
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-table th, .admin-table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+.admin-table th {
+  background-color: var(--bg-color); /* Light grey header */
+  font-weight: 600;
+  color: var(--text-secondary-color);
+}
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tr:hover { background-color: #F9FAFB; }
+.preview-cell {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #4B5563;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.action-cell { display: flex; gap: 0.5rem; }
+
+/* Admin Panel Edit Form */
+.edit-form-section { padding: 1.5rem 2rem; }
+.edit-form-section h2 { margin-bottom: 1.5rem; }
+.edit-form-section textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  color: var(--text-primary-color);
+  font-size: 1rem;
+  font-family: monospace;
+}
+.edit-form-section textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px var(--primary-light-color);
+}
+.edit-actions { display: flex; gap: 1rem; margin-top: 1rem; }
+.button-secondary { 
+  background-color: var(--text-secondary-color); 
+  color: #fff;
+}
+.button-secondary:hover:not(:disabled) {
+  background-color: var(--text-primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Admin Panel Header */
+.admin-list-section h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  /* Apply gradient to this header too */
+  background: linear-gradient(90deg, var(--text-primary-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Small Buttons */
+.button-small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 7px;
+  color:white;  
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background-color: #6D28D9; 
+}
+.button-small:hover { 
+  background-color: #6D28D9; /* Darker Purple */
+}
+.button-danger { 
+  background-color: var(--error-color); 
+}
+.button-danger:hover { 
+  background-color: #BE123C; /* Darker Rose */
+}
+
+/* Messages & Loaders */
+.message {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  border: 1px solid;
+}
+.error-message {
+  background-color: var(--error-light-color);
+  color: var(--error-color);
+  border-color: var(--error-color);
+}
+.success-message {
+  background-color: #EAFBF5; /* Light green */
+  color: var(--success-color);
+  border-color: #B8F2E0;
+}
+.loader {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--text-primary-color);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Login Page Styles */
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+}
+.auth-card h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  /* Apply gradient here too */
+  background: linear-gradient(90deg, var(--text-primary-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.auth-card p {
+  text-align: center;
+  color: var(--text-secondary-color);
+  margin-bottom: 2rem;
+}
+.auth-button { width: 100%; }
+
+/* History Section */
+.history-section { margin-top: 2.5rem; }
+.history-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  /* Apply gradient here too */
+  background: linear-gradient(90deg, var(--text-primary-color), var(--primary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.history-list { display: grid; gap: 1.5rem; }
+.history-item { padding: 1.5rem; }
+.history-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+}
+.history-item-body h5 {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary-color);
+}
+.history-item-body ul { padding-left: 1.5rem; }
+.history-item-body li { margin-bottom: 0.5rem; }

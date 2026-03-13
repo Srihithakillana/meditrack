@@ -1,0 +1,136 @@
+/* src/AdminPanel.css */
+
+.admin-container .form-group {
+  margin-bottom: 1rem;
+}
+
+.admin-container .form-group label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary-color);
+}
+
+.admin-container .form-group input,
+.admin-container .form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  box-sizing: border-box; /* Ensures padding doesn't break layout */
+  background-color: var(--bg-color);
+  color: var(--text-primary-color);
+}
+
+.admin-container .form-group textarea {
+  font-family: monospace;
+  min-height: 200px;
+  background-color: #fcfcfc;
+}
+
+.api-key-section {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.api-key-section .form-group {
+  flex-grow: 1;
+  margin-bottom: 0;
+}
+
+.edit-form-section {
+  padding: 1.5rem;
+  background-color: #fdfdfd;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+.edit-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button-secondary {
+  background-color: var(--text-secondary-color);
+  color: white;
+}
+.button-secondary:hover {
+  background-color: #888;
+}
+
+.admin-list-section {
+  margin-top: 2rem;
+}
+
+.admin-table-container {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: #fff;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-table th {
+  background-color: #f9f9f9;
+  font-weight: 600;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover {
+  background-color: #fcfcff;
+}
+
+.admin-table .preview-cell {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #555;
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-table .action-cell {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.button-small {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  background-color: var(--secondary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.button-small:hover {
+  background-color: #0056b3;
+}
+
+.button-danger {
+  background-color: #e74c3c;
+}
+.button-danger:hover {
+  background-color: #c0392b;
+}
