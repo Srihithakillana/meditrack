@@ -1,10 +1,10 @@
-// src/Home.js
+// src/pages/Home.js
 import React, { useState } from "react";
-import axios from "axios";
+import api from '../services/api'; // <-- IMPORT THE NEW API SERVICE
 import { FiUpload, FiSearch, FiFileText, FiLoader } from "react-icons/fi";
-import "./App.css";
+import "../App.css";
 
-function Home() { // <-- Renamed from App
+function Home() {
   const [file, setFile] = useState(null);
   const [name, setName] = useState("");
   const [history, setHistory] = useState([]);
@@ -22,6 +22,7 @@ function Home() { // <-- Renamed from App
   };
 
   const handleUpload = async () => {
+    // --- Start of added logic ---
     if (!file || !name) {
       setError("Please provide a Patient Name and select a file.");
       return;
@@ -30,22 +31,31 @@ function Home() { // <-- Renamed from App
     setUploadSuccess("");
     setIsLoading(true);
 
-    const formData = new FormData();
+    // This is the line that fixed the error
+    const formData = new FormData(); 
     formData.append("file", file);
     formData.append("patient_name", name);
+    // --- End of added logic ---
 
     try {
-      await axios.post("http://127.0.0.1:8000/upload/", formData);
+      await api.post("/upload/", formData); // <-- USE API
       setUploadSuccess(`Prescription uploaded successfully for Patient: ${name}`);
+      // Clear inputs after success
+      setFile(null);
+      setName("");
+      setImagePreview(null);
     } catch (err) {
+      // --- Start of added logic ---
       const errorMsg = err.response?.data?.detail || "Upload failed. Please check the server.";
       setError(errorMsg);
+      // --- End of added logic ---
     } finally {
       setIsLoading(false);
     }
   };
 
   const fetchHistory = async () => {
+    // --- Start of added logic ---
     if (!name) {
       setError("Please enter a Patient Name to fetch history.");
       return;
@@ -54,19 +64,22 @@ function Home() { // <-- Renamed from App
     setUploadSuccess("");
     setIsLoading(true);
     setHistory([]);
+    // --- End of added logic ---
 
     try {
-      const res = await axios.get(`http://127.0.0.1:8000/history/${name}`);
+      const res = await api.get(`/history/${name}`); // <-- USE API
       setHistory(res.data);
     } catch (err) {
+      // --- Start of added logic ---
       const errorMsg = err.response?.data?.detail || "Could not fetch history.";
       setError(errorMsg);
+      // --- End of added logic ---
     } finally {
       setIsLoading(false);
     }
   };
 
-  return (
+ return (
     <div className="container">
       <header className="app-header">
         <h1>Prescription and Patient History Automation System</h1>
@@ -175,4 +188,4 @@ function Home() { // <-- Renamed from App
   );
 }
 
-export default Home; // <-- Renamed
+export default Home;

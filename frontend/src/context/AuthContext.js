@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [adminKey, setAdminKey] = useState(null);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     // On app start, check if we already have the key
@@ -26,6 +27,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('adminKey');
     setAdminKey(null);
   };
+  
 
   return (
     <AuthContext.Provider value={{ adminKey, login, logout, loading }}>

@@ -1,37 +1,31 @@
-// src/App.js
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext"; // Simple version
-
+import { AuthProvider } from "./context/AuthContext";
 import Layout from "./components/Layout";
-import ProtectedRoute from "./components/ProtectedRoute"; // Simple version
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
-import Login from "./pages/Login"; // Simple version
-
-import "./App.css";
+import Login from "./pages/Login";
+import PrescriptionDetail from "./pages/PrescriptionDetail";
+import PrescriptionEdit from "./pages/PrescriptionEdit";
 
 function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* Public Login Route */}
           <Route path="/login" element={<Login />} />
 
-          {/* Protected App Routes */}
-          <Route 
-            path="/" 
-            element={
-              <ProtectedRoute>
-                <Layout />
-              </ProtectedRoute>
-            }
-          >
+          {/* DASHBOARD GROUP: These share the Sidebar Layout */}
+          <Route path="/" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
             <Route index element={<Home />} />
             <Route path="admin" element={<AdminPanel />} />
           </Route>
+
+          {/* FOCUS GROUP: These are FULL SCREEN (No Sidebar) to feel like new pages */}
+          <Route path="/prescription/:patientName/:id" element={<ProtectedRoute><PrescriptionDetail /></ProtectedRoute>} />
+          <Route path="/admin/edit/:id" element={<ProtectedRoute><PrescriptionEdit /></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
